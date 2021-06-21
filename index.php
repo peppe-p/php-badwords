@@ -9,7 +9,10 @@ Una parola da censurare viene passata dall'utente tramite parametro GET.
 Stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito
 con tre asterischi (***) tutte le occorrenze della parola da censurare. */
 
-$par = "Si sta come d’autunno sugli alberi le foglie."
+$par = "Si sta come d’autunno sugli alberi le foglie.";
+$lun_par = strlen($par);
+$censura = $_GET["censura"];
+$new_par = str_replace($censura, '***', $par);
 
 ?>
 
@@ -23,6 +26,18 @@ $par = "Si sta come d’autunno sugli alberi le foglie."
 </head>
 <body>
     <h1>Badwords</h1>
-    <p>Paragrafo: <?php echo $par ?></p>
+    <p>Paragrafo: <br>
+    <?php echo $par ?>
+    <br><br>
+    Lunghezza: <?php echo $lun_par ?></p>
+    <hr>
+
+    <p>Paragrafo: <br>
+    <?php echo $new_par ?>
+    <br><br>
+    Lunghezza: <?php echo $lun_par ?></p>
+    <hr>
+
+    <h2><?php echo $censura ?></h2>
 </body>
 </html>
